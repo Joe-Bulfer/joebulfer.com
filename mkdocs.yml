@@ -1,6 +1,7 @@
 site_name: Joe Bulfer
-site_url: joebulfer.com/Welcome
+site_url: https://joebulfer.com
 repo_url: https://github.com/Joe-Bulfer/joebulfer.com
+
 nav:
 - Home: Welcome.md
 - Contact Me.md
@@ -48,6 +49,7 @@ theme:
   name: 'material'
   #name: 'bootstrap'
   logo: Assets/glider-logo.png
+  favicon: Assets/glider-favicon.png
   features:
     - header.autohide
 #

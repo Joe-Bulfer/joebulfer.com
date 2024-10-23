@@ -1,3 +1,3 @@
-# joebulfer.com
+# Welcome to My Website
 
-Me migrating my website from Obsidian Publish to Mkdocs. This is quite tedious.
+See my [Youtube](https://www.youtube.com/@joebulfer) channel for videos with accompanying articles hosted here.
