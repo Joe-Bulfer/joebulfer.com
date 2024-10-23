@@ -1,0 +1,1752 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.29">
+    
+    
+      
+        <title>2.5 Access Controls - Joe Bulfer</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.76a95c52.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/publish.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#acl" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Joe Bulfer" class="md-header__button md-logo" aria-label="Joe Bulfer" data-md-component="logo">
+      
+  <img src="../../../../Assets/glider-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Joe Bulfer
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2.5 Access Controls
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Joe-Bulfer/joebulfer.com" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Joe Bulfer" class="md-nav__button md-logo" aria-label="Joe Bulfer" data-md-component="logo">
+      
+  <img src="../../../../Assets/glider-logo.png" alt="logo">
+
+    </a>
+    Joe Bulfer
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Joe-Bulfer/joebulfer.com" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Welcome/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Contact%20Me/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact Me
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Linux
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Linux
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../The%20Rise%20of%20Linux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The Rise of Linux
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../How%20Linux%20Boots/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How Linux Boots
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Systemd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Systemd
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux%2B%20vs%20LPIC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux+ vs LPIC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Top/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Top
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Docker
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Docker/Tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Python/Advanced%20Webscraping/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Advanced Webscraping
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Python/Webscraping/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Webscraping
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Python/Miscellaneous%20Notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Miscellaneous Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Python/Package%20Management%20and%20Virtual%20Environments/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Package Management and Virtual Environments
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Python/Pygame/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pygame
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Python/Python%20Under%20the%20Hood/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python Under the Hood
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Bash
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Bash
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Bash/Scripts%20From%20A%20Real%20Project/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scripts From A Real Project
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Bash/Python%20vs%20Bash/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python vs Bash
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Bash/More%20Bash%20Examples/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    More Bash Examples
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Bash/Shell%20Navigation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shell Navigation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Bash/Backticks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Backticks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Javascript & SVG Web Design
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Javascript & SVG Web Design
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Javascript%20%26%20SVG%20Web%20Design/SVG%20Timeline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SVG Timeline
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Javascript%20%26%20SVG%20Web%20Design/Inkscape/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inkscape
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Hot Takes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Hot Takes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Stop%20Leetcode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stop Leetcode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Criticism%20of%20Rust/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Criticism of Rust
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Web%20Servers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Web Servers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Why%20Learn%20Vim/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Why Learn Vim
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../How%20to%20Learn%20Assembly%20Language%20%28And%20Why%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to Learn Assembly Language (And Why)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Language%20Benchmarking/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Language Benchmarking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Golang/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Golang
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../The%20Notion%20of%20Abstraction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The Notion of Abstraction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#acl" class="md-nav__link">
+    <span class="md-ellipsis">
+      ACL
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attributes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#special-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Special Permissions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Special Permissions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set-user-id-suid" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set user ID (SUID)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-group-id-sgid" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set group ID (SGID)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#before" class="md-nav__link">
+    <span class="md-ellipsis">
+      Before
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#after" class="md-nav__link">
+    <span class="md-ellipsis">
+      After
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="After">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sticky-bit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sticky bit
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tmp-folder-has-sticky-bit-set-on-by-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      tmp folder has sticky bit set on by default
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#or" class="md-nav__link">
+    <span class="md-ellipsis">
+      OR
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apparmor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apparmor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vimsyntaxapparmor" class="md-nav__link">
+    <span class="md-ellipsis">
+      vim:syntax=apparmor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apparmor-policy-for-ss" class="md-nav__link">
+    <span class="md-ellipsis">
+      AppArmor policy for ss
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#author" class="md-nav__link">
+    <span class="md-ellipsis">
+      ###AUTHOR
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copyright" class="md-nav__link">
+    <span class="md-ellipsis">
+      ###COPYRIGHT
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comment" class="md-nav__link">
+    <span class="md-ellipsis">
+      ###COMMENT
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#include" class="md-nav__link">
+    <span class="md-ellipsis">
+      include
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#no-template-variables-specified" class="md-nav__link">
+    <span class="md-ellipsis">
+      No template variables specified
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#last-modified-sat-dec-9-172136-2023" class="md-nav__link">
+    <span class="md-ellipsis">
+      Last Modified: Sat Dec 9 17:21:36 2023
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vimsyntaxapparmor_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      vim:syntax=apparmor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apparmor-policy-for-ss_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      AppArmor policy for ss
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#author_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ###AUTHOR
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copyright_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ###COPYRIGHT
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comment_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ###COMMENT
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#no-template-variables-specified_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      No template variables specified
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="No template variables specified">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dac-mac-discretionary-vs-mandatory-access-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      DAC &amp; MAC - Discretionary vs Mandatory Access Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#selinux-and-apparmor-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      SELinux and Apparmor Comparison
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison-of-selinux-and-apparmor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparison of SELinux and AppArmor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h4 id="acl">ACL</h4>
+<p>By default, Linux permissions only allow a single user and single group of a given directory/file. We can see this text file is owned by Joe and belongs to the "study" group.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ls -l test.txt 
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>-rw-r----- 1 joe study 8 Nov 30 19:33 test.txt
+</span></code></pre></div></p>
+<p>If we wanted more flexible permissions, such as a user that is not Joe nor part of the study group to be able to read and write to the file, we can use Access Control Lists (ACL). These are great for giving multiple groups access to a file or directory, or giving a specific user access even though they are not part of the file's group.</p>
+<p><code>getfacl</code> and <code>setfacl</code> are our two go-to commands (the f in the commands are"file"). Use the former to view the current permissions of a file. Here we have the default permission setup of a single user and group.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>getfacl test.txt 
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a># file: test.txt
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a># owner: joe
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a># group: study
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>user::rw-
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>group::r--
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>other::---
+</span></code></pre></div></p>
+<p>Now lets add the work group by modifying <code>-m</code> the file and check it afterwords.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>setfacl -m g:work:rw test.txt 
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>getfacl test.txt 
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a># file: test.txt
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a># owner: joe
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a># group: study
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>user::rw-
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>group::r--
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>group:work:rw-
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>mask::rw-
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>other::---
+</span></code></pre></div>
+Now not only is the work group added for read and write permissions, but this created a mask. This is the maximum effective permissions for any entry in the ACL.</p>
+<h4 id="attributes">Attributes</h4>
+<p>Common permission attributes include append-only and immutability. Append-only prevents modifying existing content in a file, but only appending. Immutable files/directories cannot be written, appended, or deleted, even by root. </p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a># change attribute to immutable
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>chattr -i [file]
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a># change attribute to append-only
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>chattr -a [file]
+</span></code></pre></div>
+<p>To list attributes of files in current directory, or point to a file/directory, use <code>lsattr</code>.</p>
+<p>To check whether a file has either ACL permission set, attributes assigned, or both, look for the plus at the end of the permissions with <code>ls -l</code>. 
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>#         v
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>-rw-rw----+  1 joe study     8 Nov 30 19:33 test.txt
+</span></code></pre></div></p>
+<h4 id="special-permissions">Special Permissions</h4>
+<h5 id="set-user-id-suid">Set user ID (SUID)</h5>
+<p>When a program is ran with SUID, it executes with the permissions of whoever owns the file. In the case of <code>umount</code>, if a normal user were to execute this command, they would in fact run it as if they were root. This is generally for programs that require system access that you still want users to run.</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>#SUID bit set
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>   v
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>-rwsr-xr-x 1 root root       35192 Feb 20  2022 umount
+</span></code></pre></div>
+Note if the file owner does not have execute permissions, there would be an uppercase <strong>S</strong> .</p>
+<p>Another common example of SUID is the <code>passwd</code> command. Any user should be able to change their password and this is possible by executing the file as if they were root.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>ls -l /bin/passwd
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>-rwsr-xr-x 1 root root 59976 Nov 24  2022 /bin/passwd
+</span></code></pre></div>
+Adding this permission to a file is as follows.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>chmod u+s &lt;filename&gt;
+</span></code></pre></div></p>
+<h5 id="set-group-id-sgid">Set group ID (SGID)</h5>
+<p>SGID does the same thing but for running a program with permissions of the group. Here we can see the group of executable file <code>ssh-agent</code> is <code>_ssg</code>. When a user is running this program, they will act as a member of the file's group.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>#SGID bit set
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>      v
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>-rwxr-sr-x 1 root _ssh      293304 Aug 24 08:40 ssh-agent
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a> ```
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a> SGID has a different function on directories. If set, any file created within that directory will inherit the group ownership of the parent directory group.
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>For example, this directory has an owner of bill and group of study. I can add SGID with the following. Note the before and after in the executable portion of the group permissions.
+</span></code></pre></div></p>
+<h1 id="before">Before</h1>
+<div class="language-text highlight"><pre><span></span><code>  v
+</code></pre></div>
+<p>drwxrwxr-x 2 bill study 4096 Dec  3 12:24 dir</p>
+<p>chmod g+s sgid</p>
+<h1 id="after">After</h1>
+<div class="language-text highlight"><pre><span></span><code>  v
+</code></pre></div>
+<p>drwxrwsr-x 2 bill study 4096 Dec  3 12:25 dir
+<code>`file1` was created by joe before adding the SGID. After it was set `file2` was created inheriting the study group from it's parent directory.</code>
+ls -l dir
+total 0
+-rw-rw-r-- 1 joe joe   0 Dec  3 12:25 file1
+-rw-rw-r-- 1 joe study 0 Dec  3 12:26 file2
+```</p>
+<h5 id="sticky-bit">Sticky bit</h5>
+<p>Folders with this activated cannot have files within them deleted or renamed by other users. This is commonly used on directories like <code>/tmp</code> to prevent users from deleting each other's files. 
+```</p>
+<h1 id="tmp-folder-has-sticky-bit-set-on-by-default">tmp folder has sticky bit set on by default</h1>
+<div class="language-text highlight"><pre><span></span><code>     v
+</code></pre></div>
+<p>drwxrwxrwt  17 root root       4096 Dec  3 11:44 tmp
+<code>Use the following either in symbolic or numeric mode to add this restriction.</code>
+chmod +t dir</p>
+<h1 id="or">OR</h1>
+<p>chmod 1777 dir
+```
+Though it is possible to add sticky bit to a file, it currently has no function in modern Linux systems.
+
+So what to remember about each 3 of these permissions is that SUID is for executable files only, SGID works on both executable files and directories, and sticky bit only works on directories.
+</p>
+<h4 id="apparmor">Apparmor</h4>
+<p>Apparmor is a Linux kernel security module found in Debian based and Ubuntu systems. It provides Mandatory Access Control (MAC) to restrict programs, applications, and scripts capabilities with per-program profiles. It is considerably easier than SELinux setup and maintain. Unlike SELinux, which is based on applying labels to files based on their inodes, AppArmor works with file paths.
+
+<code>aa-status</code> will display profiles of programs either in enforce mode, which will log and block access, and complain mode, which will only log. You can view these logs in <code>/var/log/syslog</code>.
+
+Installing <code>apparmor-utils</code> includes essential commands such as those needed to move profiles to enforce or complain mode, and to generate profiles.
+
+In the <code>/etc/apparmor.d</code> directory, you will find the profiles on your system as seen with <code>aa-status</code>. To create a profile with an easy template, use <code>aa-easyprof</code>, or <code>aa-genprof</code> to create your own.
+
+To restrict the scope of access of the <code>ss</code> program, I can create a profile and place it in the apparmor directory as follows. Next I will enforce it.
+<code>❯ sudo aa-easyprof /usr/bin/ss &gt; usr.bin.ss
+❯ sudo mv usr.bin.ss /etc/apparmor.d/
+❯ sudo aa-enforce /etc/apparmor.d/usr.bin.ss</code>
+At first, the program will essentially be disabled until you explicitly define it's permissions. 
+
+When I try to run <code>ss</code>, it is denied permission. These logs can then be found in <code>var/log/syslog</code>. 
+<code>❯ ss
+Cannot open netlink socket: Permission denied
+Cannot open netlink socket: Permission denied
+Cannot open netlink socket: Permission denied
+❯ tail -1 /var/log/syslog
+Dec  9 15:42:56 x230-2 kernel: [15915.826222] audit: type=1400 audit(1702158176.819:103): apparmor="DENIED" operation="create" profile="/usr/bin/ss" pid=16843 comm="ss" family="netlink" sock_type="raw" protocol=4 requested_mask="create" denied_mask="create"</code>
+<code>aa-logprof</code> is an interactive tools that reads <code>var/log/syslog</code> for Apparmor events and will generate a list of suggested profile changes that the user can choose from to update security profiles. For example, if I recently ran <code>ss</code> when after I restricted it, it would prompt me to adjust permissions.
+```
+❯ aa-logprof 
+Updating AppArmor profiles in /etc/apparmor.d.
+Reading log entries from /var/log/syslog.
+Complain-mode changes:</p>
+<p>Profile:        /usr/bin/ss
+Network Family: netlink
+Socket Type:    raw</p>
+<p>[1 - include <abstractions/nameservice>]
+  2 - network netlink raw, 
+(A)llow / [(D)eny] / (I)gnore / Audi(t) / Abo(r)t / (F)inish</p>
+<p>...</p>
+<p>(S)ave Changes / Save Selec(t)ed Profile / [(V)iew Changes] / View Changes b/w (C)lean profiles / Abo(r)t
+Writing updated profile for /usr/bin/ss.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>After I have allowed access to multiple processes and saved changes to the profile. I can see the change in `usr.bin.ss`. The default `aa-easyprof` template it started with basically allows nothing, then afterwords we can see the what we allowed from `aa-logprof`.
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>Before `aa-logprof` (default `aa-easyprof`, nothing)
+</span></code></pre></div>
+❯ cat /etc/apparmor.d/usr.bin.ss </p>
+<h1 id="vimsyntaxapparmor">vim:syntax=apparmor</h1>
+<h1 id="apparmor-policy-for-ss">AppArmor policy for ss</h1>
+<h1 id="author">###AUTHOR</h1>
+<h1 id="copyright">###COPYRIGHT</h1>
+<h1 id="comment">###COMMENT</h1>
+<h1 id="include">include <tunables/global></h1>
+<h1 id="no-template-variables-specified">No template variables specified</h1>
+<p>/usr/bin/ss {
+  #include <abstractions/base></p>
+<p># No abstractions specified
+  # No policy groups specified
+  # No read paths specified
+  # No write paths specified
+}
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>After allowing access to multiple processes using `aa-logprof`
+</span></code></pre></div>
+❯ cat /etc/apparmor.d/usr.bin.ss </p>
+<h1 id="last-modified-sat-dec-9-172136-2023">Last Modified: Sat Dec  9 17:21:36 2023</h1>
+<p>include <tunables/global></p>
+<h1 id="vimsyntaxapparmor_1">vim:syntax=apparmor</h1>
+<h1 id="apparmor-policy-for-ss_1">AppArmor policy for ss</h1>
+<h1 id="author_1">###AUTHOR</h1>
+<h1 id="copyright_1">###COPYRIGHT</h1>
+<h1 id="comment_1">###COMMENT</h1>
+<h1 id="no-template-variables-specified_1">No template variables specified</h1>
+<p>/usr/bin/ss {
+  include <abstractions/base>
+  include <abstractions/nameservice></p>
+<p>/proc/<em>/net/raw r,
+  /proc/</em>/net/udp r,
+  /proc/*/net/unix r,
+}
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>#### SELinux
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>Security Enhanced Linux is a Mandatory Access Control (MAC) system built into the upstream Linux kernel itself. It was originally developed by the NSA and Red Hat as a series of security patches using Linux Security Modules (LSM).  
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>Two most important concepts in SELinux are Labeling and Type Enforcement.
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>Files, directories, ports, etc. are all labelled with a SELinux context. Files and directories&#39; labels are stored as extended attributes on the filesystem. Processes and port&#39;s labels are managed by the kernel.
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>Labels are in this format: 
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>- user:role:**type**:level(optional)
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>Use the `-Z` flag to create files and directories with SELinux security context, or `ls` to print security context.
+</span></code></pre></div>
+cp -Z
+mkdir -Z
+ls -Z
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Use `chcon` and `restorecon` to change context of a file. Note changes with chcon do not survive a filesystem relabel, often triggered with `/.autorelabel` at boot time.
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>File&#39;s contexts are set when they are created based on their parent directories context (with some exceptions). File context and label&#39;s refer to the same thing.
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>Let&#39;s say some file is not working and you suspect it is the context after inspecting it with `ls -Z`. If you have a known good file you can reference it&#39;s context and point it at the file to copy it&#39;s context.
+</span></code></pre></div>
+chcon --reference known-good.txt broken.txt 
+```</p>
+<p>You can also restore a file or directory to the default context using <code>restorecon</code>. </p>
+<p>To change the default setting, i.e persistent changes use <code>semanage fcontext</code>. Then run resorecon to apply the changes or run an autorelabel. </p>
+<p>Run <code>chcon -t httpd_sys_content_t file-name</code> to change context type. This will not persist across reboot.</p>
+<p>To put Selinux is permissive mode temporarily, run <code>setenforce 0</code> or <code>1</code> for enforcing. Modify this in <code>/etc/selinux/config</code> to persist across reboots.</p>
+<h5 id="dac-mac-discretionary-vs-mandatory-access-control">DAC &amp; MAC - Discretionary vs Mandatory Access Control</h5>
+<p>Traditional Unix/Linux systems were discretionary. These have simple owner, group and other permissions. A user has the ability (discretion) to change permissions on their own files and <code>chmod +rwx</code> his own home directory and nothing will stop them, and then nothing will stop other users or processes from accessing that user's directory. On top of this Discretionary Access Control gives the root user omnipotent powers.</p>
+<p>On Mandatory Access Control systems, there is a policy which is administratively set and fixed. Even if you change the DAC settings on your home directory, if there is a policy in place which prevents another user or process from accessing it, you're generally safe.</p>
+<p>These policies can be very fine grained. Policies can be set  to determine access between: 
+- Users
+- Files
+- Directories
+- Memory
+- Sockets
+- tcp/udp ports
+- etc.</p>
+<p>Type enforcement is the part of the policy that says, for instance, "a process running with the label httpd_t can have read access to a file labeled httpd_config_t"</p>
+<h5 id="selinux-and-apparmor-comparison">SELinux and Apparmor Comparison</h5>
+<ul>
+<li>Selinux operates at the system level, while Apparmor works at the applications level.</li>
+<li>Apparmor identifies filesystem objects by filepath as opposed to Selinux which identifies them by inode.</li>
+<li>Selinux is used by RHEL(Red Hat), SLES(SUSE), and Android, while Apparmor is used by Debian and Ubuntu.</li>
+</ul>
+<p><strong>Application Level</strong>
+Apparmor - Deny Everything
+Selinux - Allow Everything
+<strong>System Level</strong>
+Apparmor - Allow Everything
+Selinux - Deny Everything</p>
+<h4 id="comparison-of-selinux-and-apparmor">Comparison of SELinux and AppArmor</h4>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>SELinux</th>
+<th>AppArmor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Original Sponsor</td>
+<td>DoD/NSA (USA)</td>
+<td>DoD/DARPA (USA)</td>
+</tr>
+<tr>
+<td>Approach</td>
+<td>Deny everything system level</td>
+<td>Deny everything application level</td>
+</tr>
+<tr>
+<td>Integration in Linux</td>
+<td>LSM Module + Userland</td>
+<td>LSM Module + Userland</td>
+</tr>
+<tr>
+<td>Performance Impact</td>
+<td>&lt;5%</td>
+<td>0-2%</td>
+</tr>
+<tr>
+<td>Restriction</td>
+<td>MAC, RBAC, MLS, Network Labeling</td>
+<td>MAC, RBAC, (MLS)</td>
+</tr>
+<tr>
+<td>Confinement</td>
+<td>Indirect, via "Labels"</td>
+<td>Direct, Path based</td>
+</tr>
+<tr>
+<td>Profiles/Policies</td>
+<td>"Program" needs to be compiled</td>
+<td>Simple text files, Unix style</td>
+</tr>
+<tr>
+<td>Auditing / Human</td>
+<td>SELinux policies are hard to read and to audit</td>
+<td>AppArmor profiles are easy to audit</td>
+</tr>
+<tr>
+<td>Availability in Distros</td>
+<td>CentOS, RHEL, SUSE Linux Enterprise</td>
+<td>Ubuntu, openSUSE, SUSE Linux Enterprise</td>
+</tr>
+<tr>
+<td>Primary Adoption</td>
+<td>US/Canada</td>
+<td>Worldwide</td>
+</tr>
+<tr>
+<td>Notes</td>
+<td>SUSE Linux Enterprise - Support for software stack, no policy included in SLES. Preconfigured part of SLE Micro 5.</td>
+<td>Support for software stack and AppArmor profiles. Will be used for CCC for SLE 15.</td>
+</tr>
+<tr>
+<td><em>Courtesy SUSECON</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>#### Additional Learning</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SUSE Conference <em>Overview of SELinux and AppArmor</em> <a href="https://www.youtube.com/watch?v=9dqHOrM4KHo">Presentation</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Red Hat Summit <em>Security-Enhanced Linux for mere mortals</em> <a href="https://www.youtube.com/watch?v=_WOKRaM-HI4&amp;t=868s">Presentation</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Very in depth interview with Selinux/NSA Engineer <a href="https://www.youtube.com/watch?v=i_0tph7hMJ4">Interview</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Red Hat Selinux <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/security-enhanced_linux/chap-security-enhanced_linux-introduction#sect-Security-Enhanced_Linux-Introduction-Benefits_of_running_SELinux">Documentation</a></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["header.autohide"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+        <script src="../../../../publish.js"></script>
+      
+    
+  </body>
+</html>

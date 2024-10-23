@@ -1,0 +1,1271 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.29">
+    
+    
+      
+        <title>Every Programming Language Explained - Joe Bulfer</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.76a95c52.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/publish.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#java" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Joe Bulfer" class="md-header__button md-logo" aria-label="Joe Bulfer" data-md-component="logo">
+      
+  <img src="../Assets/glider-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Joe Bulfer
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Every Programming Language Explained
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Joe-Bulfer/joebulfer.com" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Joe Bulfer" class="md-nav__button md-logo" aria-label="Joe Bulfer" data-md-component="logo">
+      
+  <img src="../Assets/glider-logo.png" alt="logo">
+
+    </a>
+    Joe Bulfer
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Joe-Bulfer/joebulfer.com" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Welcome/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Contact%20Me/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact Me
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Linux
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Linux
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux/The%20Rise%20of%20Linux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The Rise of Linux
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux/How%20Linux%20Boots/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How Linux Boots
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux/Systemd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Systemd
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux/Linux%2B%20vs%20LPIC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux+ vs LPIC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux/Top/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Top
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Docker
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux/Docker/Tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python/Advanced%20Webscraping/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Advanced Webscraping
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python/Webscraping/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Webscraping
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python/Miscellaneous%20Notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Miscellaneous Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python/Package%20Management%20and%20Virtual%20Environments/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Package Management and Virtual Environments
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python/Pygame/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pygame
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python/Python%20Under%20the%20Hood/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python Under the Hood
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Bash
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Bash
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Bash/Scripts%20From%20A%20Real%20Project/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scripts From A Real Project
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Bash/Python%20vs%20Bash/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python vs Bash
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Bash/More%20Bash%20Examples/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    More Bash Examples
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Bash/Shell%20Navigation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shell Navigation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Bash/Backticks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Backticks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Javascript & SVG Web Design
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Javascript & SVG Web Design
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Javascript%20%26%20SVG%20Web%20Design/SVG%20Timeline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SVG Timeline
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Javascript%20%26%20SVG%20Web%20Design/Inkscape/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inkscape
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Hot Takes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Hot Takes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Stop%20Leetcode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stop Leetcode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Criticism%20of%20Rust/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Criticism of Rust
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Web%20Servers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Web Servers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Why%20Learn%20Vim/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Why Learn Vim
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../How%20to%20Learn%20Assembly%20Language%20%28And%20Why%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to Learn Assembly Language (And Why)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Language%20Benchmarking/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Language Benchmarking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Golang/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Golang
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../The%20Notion%20of%20Abstraction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The Notion of Abstraction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#java" class="md-nav__link">
+    <span class="md-ellipsis">
+      Java
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#javascript" class="md-nav__link">
+    <span class="md-ellipsis">
+      Javascript
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#go" class="md-nav__link">
+    <span class="md-ellipsis">
+      Go
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    <span class="md-ellipsis">
+      C
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#employment-and-usage-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Employment and Usage Statistics
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>Every Programming Language Explained</h1>
+
+<!-- Mention preconceived biases of C# and Microsoft. Mention Go, Python, Java, and Javascript. -->
+<blockquote>
+<p>📝: <strong>Video Transcript</strong>: This is the transcript for a video on my youtube channel. It should still be just as readable as an article, but you can also find the video <a href="https://www.youtube.com/watch?v=9ApyTHAXyfU">here</a>.</p>
+</blockquote>
+<p>To understand the many programming languages you can choose to learn and create software with, it's important to understand, in addition to the technical details, the historical context and reason the language was created.  Often, they provide a solution to a series of problems encountered in previous languages, which we'll have several examples of, starting with the creation of Java, which arose because of problems with C and C++.</p>
+<p>See this timeline as a foreshadow for all languages to be discussed.</p>
+<p><img alt="Programming Language Timeline" src="../5-languages-timeline.png" /></p>
+<h2 id="java">Java</h2>
+<p>It was known since the early 90s, a time when almost all software was written in C and C++, that the majority of security vulnerabilities come from <a href="https://www.usenix.org/system/files/osdi18-cutler.pdf#page=4">pointer bugs</a> and buffer overflows. </p>
+<p>James Gosling, an engineer at Sun Microsystems, was frustrated by spending a significant amount of time hunting these pointer bugs down in large C and C++ codebases, which is a notoriosly difficult task.  This eventually lead to him to create his own language and runtime with a garbage collector, which provides automatic memory management. In addition, Java has a strict object design intended to develop software with interfaces as contracts or signatures between objects. In this interview, James Gosling discusses the benefit of having clear interfaces between different components in large scale projects and preventing the "backdoor" developers make to bypass the intended object-oriented programming principles or established interfaces to instead quickly hack something together.</p>
+<p>Another characteristic of Java, besides the language itself, is the architecture it run on, the JVM, or Java Virtual Machine is an abstraction layer agnostic to the underlying machine, which was a brilliant new idea during it's inception.  </p>
+<p>In the 90s all CPUs were very diverse and proprietary. Most applications ran on computers from different vendors, with different chips and different instruction sets such as MIPS or RISC. When writing C or C++, it had to be tailored to that specific architecture. Not only did software have to be written for specific ISAs, but it often had to be re-written for newer generations, such as transitioning from the <a href="https://en.wikipedia.org/wiki/Motorola_68010">Motorola 68010</a> to the  <a href="https://en.wikipedia.org/wiki/Motorola_68020">68020</a>, which James Gosling himself spent a year on re-implementing at Sun Microsystems. He later developed the JVM as a solution where you could write it once and run anywhere. </p>
+<p>Though people nowadays criticize Java for it's large overhead, understanding the historical context of when it was created puts it design into perspective. </p>
+<p>Nowadays, Java powers the Android platform, web applications with Spring Boot, back-end server software, enterprise applications and much more. </p>
+<h2 id="python">Python</h2>
+<p>Moving on we have Python, created by Guido Van Rossum, working at a computing research institute in the 80s,  where nearly every program they wrote was either a shell script, or in C. Wishing there was a language somewhere in the middle, that felt like a genuine programming language, like C, but was also interpreted, easy to use and concisely written like shell scripts, but without their poor readability. After creating Python, it was quickly adopted by fellow researchers for scripting tasks.</p>
+<p>Python's advantage is it's shallow learning curve, since it's interpreted, you don't have to compile code into an separate executable file every time you want to run it, instead just save your file and run a single command. What else contributes to it's ease of use is it's syntax, which is famously known for being simple and easy, making it the preferred beginner programming language for many, often taught in schools and universities. I personally was introduced to programming in a computer class from high school, where we built a platoformer game using the Ktinker module.</p>
+<p>Besides it's shallow learning curve, another reason for Python's wide adoption is it's massive package ecosystem.  Importing code written by someone else has never been easier, and if you can imagine any use case there is surely a suitable module that exists in the half a million packages on PyPi, or Python Package Index.</p>
+<p>According to <a href="https://www.jetbrains.com/lp/devecosystem-2023/python/">Jetbrain Developer survey</a>, Python currently sees use primarily in data analysis and machine learning, with a long list of other use cases including web development, system administration, and software prototyping.</p>
+<h2 id="javascript">Javascript</h2>
+<p>Moving on to Javascript, we have to understand the early days of the internet and very first web browsers. As the demand of websites grew from static web pages to dynamic, interactive applications, the need for a scripting language specifically for the web became apparent. The idea of code injected directly into markup was new at the time, but became necessary.  Working at Netscape, which later became Firefox, Brendan Eich had a deadline of 10 days to finish the language because it had to be rolled out fast during a time critical period where the internet was booming in popularity and Netscape was in fierce competition against Microsoft's internet explorer for market share. Javascript today has evolved into what people now use as a general purpose programming language despite originally meant for small scripting tasks. The fact that Javascript is loosely typed, means it's difficult to understand what types of data are being passed around, leading to unexpected behavior, such as referencing variables that don't exist and broken code only discovered at runtime when the browser throws an error. Because of this, it was not ideal for large applications. Developers at Microsoft realized this in 2010 when they were first building their new IDE, VSCode. The need for type safety and static type checking ahead of time lead the developers to create their own superset on top of the language, which transpiles back to Javascript, this became known as Typescript.</p>
+<p>Nowadays both Javascript and Typescript are widely adopted and still growing in popularity. For small web scripting tasks, Javascript is best, for large applications, either Typescript or Javascript paired with JSDoc to comment types works best.</p>
+<h2 id="go">Go</h2>
+<p>Next we have Golang. What lead to it's creation was massive and complex C++ code bases at Google taking minutes, and sometimes hours to compile. In addition, the turn of the century saw languages like C++, Java, and Python as unable to handle problems introduced by multi-core processors, networked systems, and modern server programs comprising tens of millions of lines of code.</p>
+<p>Go was conceived in 2007 by engineers with many notable accomplishments, such as Unix, C, UTF-8, and the Chrome V8 Engine. </p>
+<p>The language is intended for big teams working on large codebases. The greatest "feature" of Go is it's <i>lack</i> of features, this allows for readability, simplicity, and faster development time. Though you can define methods on types/structs, Go is not an object oriented language, rather a procedural language heavily influenced by C. Go was designed with modern hardware with multi-core CPUs in mind. Concurrency allows fully utilizing multiple CPU cores using goroutines for execution and channels for communication.</p>
+<p>In this <a href="https://www.youtube.com/watch?v=k9Zbuuo51go">presentation</a> by Rob Pike, he first discusses his experience attending various language conferences, which discussed newer versions and features of Java, C#, C++, PHP, and more. He realized these languages are competing by actively borrowing features from one another. This means in a sense, they are all converging into the same language. Growing in complexity while becoming more similar, meaning bloat without distinction.</p>
+<p>Go does not try to compete, since Go V1.0, the language has been fixed, with very few features added. It is intended as a simple to use, procedural language. Without OO features, you can focus on the task at hand rather than think about the heirarchy or type system that you have to shape into the problem you're solving. There is no context switching jumping around files finding where something is inherited from. Code generally reads top to bottom in a simple manner.</p>
+<p>Go has seen widespread adoption for cloud and network services, command line programs, and web development, with the majority of it's use being in the work place by real businesses, as opposed to a language like Rust, which sees use mostly by hobbyists and personal projects. Because of this, in addition to me just not knowing much about the language, means I will skip over it.</p>
+<h2 id="c">C</h2>
+<p>Next, we have the technology that powers big business and enterprise, dot net.</p>
+<p>The story of C# begins in the late 90s, when Java was basically taking over the world, Microsoft quickly developed their own implementation, called Visual J++, but realized it didn't make sense to build technology based on a license from their competitor, Sun, this lead Microsoft to build their own language and architecture entirely, leading to C# and dot net.</p>
+<p>See this quote from the creator of C#, Anders Heijlburg, in this <a href="https://youtu.be/2K_4T7M1DKk?t=1720">interview</a>. </p>
+<p>In his words, C# was basically created for the "ease of use with visual basics rapid application devleopment with the power and expressivness of C++ "</p>
+<p>Back in the early days, C# was used primarily for building Windows applications and was bound to to the Windows operating system running on dot net. However, nowadays cross platform is possible with dot net core. So although lot of people still associate .NET and C# with Windows only, that is no longer the case with development on Linux and MacOS being just as feasible.</p>
+<p>Besides just desktop apps, there is much more possibility such as web apps with Blazer, mobile apps with MAUI (previously xamarin), and even game development with the Godot and Unity engine.</p>
+<p>There is a common phenomenon of developers rejecting C# for political reasons, as in they don't like Microsoft, but the company is no longer the villain of open source like they once were. This could be a topic for a whole nother video, but to summarize, Microsoft historically had a terrible reputation with the open source community under CEOs Bill Gates and Steve Ballmer, but the company has seen a radical shift from close source and anti-competitive behavior to open source and collaborative with Satya Nadella. His first year as CEO he gave away .NET to the .NET foundation, separate from Microsoft. The rewrite of .NET to .NET Core was no longer closed source and proprietary, and nowadays, Microsoft is second in the Open Source Contributor Index behind Google. </p>
+<p>Because of this culture and history of smaller companies and startups being anti-microsoft, you'll rarely find C# and .NET in these types of jobs, instead finding employment in larger, stable companies like banks, insurance companies and healthcare. Where startups and tech companies are likely to use anything but C#.</p>
+<h2 id="employment-and-usage-statistics">Employment and Usage Statistics</h2>
+<p>Before finishing off the video, I'd like to go over employment and usage statistics.</p>
+<p>After searching for a particular language wrapped in quotes with the word "software" on Indeed, here are the results I found. You can see the Java and Python having the largest number of jobs, and Go with the lowest, although it may not be accurate because of the difficulty of searching a general word like "Go", giving false positives, this is the result of searching for Golang, but I suspect many jobs just referred to it as Go, which this search did not pick up. If you have some clever search to provide more accurate results, please leave it in the comments.</p>
+<p>Moving on the usage statistics, I have data gathered from the yearly stack overflow survey, where professional developers report which languages they have worked with extensively in the past year. If you'd like to explore this data, you can find the website in the description.</p>
+<p>In terms of employment, you will find C# in corporate jobs while anything else in startup/tech companies which commonly have anti-ms sentiment. Despite Dot Net Core, this culture will likely stick around. </p>
+<p>That sums up the video and thanks for watching. Like, comment, and subscribe to support more content like this.</p>
+<h2 id="additional">Additional</h2>
+<p><a href="https://www.reddit.com/r/csharp/comments/fj4z8x/why_does_silicon_valley_have_few_cnet_jobs/">Reddit Post: No C# in Silicon Valley</a></p>
+<p>C# is most common in big, stable businesses, banks, and insurance companies. It is rare in startups and silicon valley.</p>
+<p><a href="https://www.jetbrains.com/lp/devecosystem-2023/csharp/">C# Jetbrains Developer Ecosystem</a> </p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["header.autohide"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+        <script src="../publish.js"></script>
+      
+    
+  </body>
+</html>
