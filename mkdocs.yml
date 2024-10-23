@@ -1,0 +1,76 @@
+site_name: Joe Bulfer
+#site_url: joebulfer.com/Welcome
+repo_url: https://github.com/Joe-Bulfer/joebulfer.com
+nav:
+- Home: Welcome.md
+- Contact Me.md
+- Linux:
+    - Linux/The Rise of Linux.md
+    - Linux/How Linux Boots.md
+    - Linux/Systemd.md
+    - Linux/Linux+ vs LPIC.md
+    - Linux/Top.md
+    - Docker:
+        - Linux/Docker/Tutorial.md
+- Python:
+    - Python/Advanced Webscraping.md
+    - Python/Webscraping.md
+    - Python/Miscellaneous Notes.md
+    - Python/Package Management and Virtual Environments.md
+    - Python/Pygame.md
+    - Python/Python Under the Hood.md
+- Bash:
+    - Bash/Scripts From A Real Project.md
+    - Bash/Python vs Bash.md
+    - Bash/More Bash Examples.md
+    - Bash/Shell Navigation.md
+    - Bash/Backticks.md
+- Javascript & SVG Web Design:
+    - Javascript & SVG Web Design/SVG Timeline.md
+    - Javascript & SVG Web Design/Inkscape.md
+- Hot Takes:
+    - Stop Leetcode.md
+    - Criticism of Rust.md
+- Web Servers.md
+- Why Learn Vim.md
+- How to Learn Assembly Language (And Why).md
+- Language Benchmarking.md
+- Golang.md
+- The Notion of Abstraction.md
+
+#if I'm not using admonitions and any fancy image features, do I even need material?
+#what if I refactor each file using Vscode's ctrl + shift + v markdown preview or Neovim equivilent?
+#https://github.com/iamcco/markdown-preview.nvim
+#this way I am just getting standard markdown files, then they should work in mkdocs, hugo, or any SSG in the future 
+#either way current website expires the 24th and this was really all just to get a comment system working so I should focus on that
+
+theme:
+  name: 'material'
+  #name: 'bootstrap'
+  logo: Assets/glider-logo.png
+  features:
+    - header.autohide
+#
+# allow HTML target="_blank" on markdown links to open links in new tabs by default
+markdown_extensions:
+  #- admonition
+  #two attributes recommended for images
+  #https://squidfunk.github.io/mkdocs-material/reference/images/
+  - attr_list
+  - md_in_html
+
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+extra_css:
+  - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css
+
+extra_javascript:
+  - publish.js
+extra_css:
+  - stylesheets/publish.css
