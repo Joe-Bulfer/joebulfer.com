@@ -1,5 +1,5 @@
 site_name: Joe Bulfer
-#site_url: joebulfer.com/Welcome
+site_url: joebulfer.com/Welcome
 repo_url: https://github.com/Joe-Bulfer/joebulfer.com
 nav:
 - Home: Welcome.md
