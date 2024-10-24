@@ -3,7 +3,7 @@ site_url: https://joebulfer.com
 repo_url: https://github.com/Joe-Bulfer/joebulfer.com
 
 nav:
-- Home: Welcome.md
+- Home: index.md
 - Contact Me.md
 - Linux:
     - Linux/The Rise of Linux.md
