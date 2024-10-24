@@ -47,6 +47,7 @@ nav:
 
 theme:
   name: 'material'
+  custom_dir: overrides
   #name: 'bootstrap'
   logo: Assets/glider-logo.png
   favicon: Assets/glider-favicon.png
@@ -58,8 +59,8 @@ markdown_extensions:
   #- admonition
   #two attributes recommended for images
   #https://squidfunk.github.io/mkdocs-material/reference/images/
-  - attr_list
-  - md_in_html
+  #- attr_list
+  #- md_in_html
 
   - pymdownx.highlight:
       anchor_linenums: true
@@ -69,10 +70,13 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.superfences
 
-extra_css:
-  - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css
+  #extra_css:
+  #- https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css
 
 extra_javascript:
   - publish.js
 extra_css:
-  - stylesheets/publish.css
+  - publish.css
+  # removing footer element with js might be enough for now until I override the copyright.html
+  #extra:
+    #generator: false # get rid of "Made with Material for Mkdocs" at bottom footer
