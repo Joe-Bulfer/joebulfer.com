@@ -1,9 +1,9 @@
 const hero_anchor = document.querySelector('a[title="Joe Bulfer"]');
 
 if (hero_anchor) {
-  hero_anchor.setAttribute('href', '/Welcome');
+  hero_anchor.setAttribute('href', '/');
 }
 
-document.querySelector(".md-footer").remove()
+document.querySelector("footer").remove()
 
 
