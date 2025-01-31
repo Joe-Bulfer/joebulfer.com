@@ -1,3 +1,5 @@
+> 🔔 **Most Recent Video**: Titled [Why I Change From C to Python](https://youtu.be/pgIV4jQuckk?si=Lnp_1J5so5-Oegw1). Really it's more about C programming with Raylib, than about Python. Raylib is a simple game development library which will be the topic of my next video.
+
 Welcome to my Website! This will serve as the place for my more formatted and organized writing.
 
 I am an undergraduate computer science student who has been programming and taking apart computers since I was was young. Linux has been a major interest as a hobby as well as in professional pursuit of certifications and employment. Various other interests are as follows:
